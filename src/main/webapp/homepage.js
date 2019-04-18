@@ -1,16 +1,44 @@
 window.onload = () => {
-	
+	getAllPendingRequests();
+	document.getElementById("createRequestBtn").addEventListener("click", createRequest);
+	document.getElementById("populateRequestTable").addEventListener("click", populatePendingRequestTable);
 }
 
 const giveMeMoney = () => {
-	if (document.getElementById('giveMeMoney').clicked){
-		document.getElementById('reimbursement').style.visibility = 'visible';	
-	}
-	else {
-		document.getElementById('reimbursement').style.visibility = 'hidden';
+	const x = document.getElementById("reimbursement");
+	if(x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
 	}
 }
 
+const showMeMoney = () => {
+	const x = document.getElementById("pendingTable");
+	if(x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+
+const yayMoney = () => {
+	const x = document.getElementById("approvedTable");
+	if(x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+
+const noMoney = () => {
+	const x = document.getElementById("deniedTable");
+	if(x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
 
 const getAllPendingRequests = () => {
 	//Step 1: Create an XMLHttpRequest object
@@ -26,7 +54,7 @@ const getAllPendingRequests = () => {
 	};
 	
 	//Step 3: Call xhr.open(), passing in 2 strings for the HTTP Method and URL 
-	xhr.open("GET", "http://localhost:8088/ERSProject/"); 
+	xhr.open("GET", "http://localhost:8088/ERSProject/ReimbursementRequestServlet"); 
 	
 	//Step 4: Call xhr.send() to actually fire off your HTTP Request
 	xhr.send();
@@ -184,17 +212,21 @@ const createRequest = () => {
 	}
 	
 	//Step 3: open up the request
-	xhr.open("POST", "http://localhost:8088/ServletExample/api/todos");
+	xhr.open("POST", "http://localhost:8088/ERSProject/ReimbursementRequestServlet");
 	
 	//Step 4: send off the request
 	xhr.send(JSON.stringify(formData));
 }
 
 const parseForm = () => {
+	const requestIdText = document.getElementById("requestId").value;
 	const reimbursementText = document.getElementById("reimbursement").value;
-	//const descriptionText = document.getElementById("description").value;
+	const employeeIdText = document.getElementById("employeeId").value;
+	
 	return {
-		reimbursementamount: reimbursementText,
-		//description: descriptionText
+		requestId: requestIdText,
+		reimbursementAmount: reimbursementText,
+		employeeId: employeeIdText
+		
 	}
 }

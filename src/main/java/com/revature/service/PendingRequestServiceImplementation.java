@@ -29,7 +29,9 @@ public class PendingRequestServiceImplementation implements PendingRequestServic
 			System.out.println("created pendingRequest");
 			return pendingRequestDao.createPendingRequest(pendingRequest);
 		} catch (IOException e) {
+			e.printStackTrace();
 			System.out.println("inside exception: returning null");
+			
 			return null;
 		}
 	}

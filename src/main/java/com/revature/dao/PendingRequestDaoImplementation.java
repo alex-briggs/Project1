@@ -50,17 +50,23 @@ public class PendingRequestDaoImplementation implements PendingRequestDao{
 					System.out.println("inside pendingrequestDAO");
 					//preparedStatement to avoid sql injections
 					//initialize our insert statement
-					PreparedStatement stmt = conn.prepareStatement("INSERT INTO pendingrequest VALUES (?,?,1,?)");
+					PreparedStatement stmt = conn.prepareStatement("INSERT INTO pendingrequest(request_id, reimbursement_amount, manager_id, emp_id) VALUES (?,?,?,?)");
 					//set the values of the insert statement to help prevent SQL injection
+					System.out.println("created prepared statement");
 					stmt.setInt(1, pendingRequest.getRequestId());
 					stmt.setInt(2, pendingRequest.getReimbursementAmount());
+					System.out.println(pendingRequest.getReimbursementAmount());
+					stmt.setInt(3, 1);
 					stmt.setInt(4, pendingRequest.getEmployeeId());
 					
 					//execute the query, determining the number of rows that were affected
 					int rowsAffected = stmt.executeUpdate();
+					
 					if(rowsAffected == 1) {
+						System.out.println(pendingRequest);
 						return pendingRequest;
 					}
+					
 					
 				} catch (SQLException e) {
 					
