@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Home Page</title>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1 style="text-align: center">Welcome to Your Home Page</h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-2">
+				<button type="button" name="ReimbursementRequest" id="giveMeMoney"
+					onclick="giveMeMoney()">Give me Money</button>
+			</div>
+			<div class="col-lg-2">
+				<button type="button" name="pendingRequest">Where is my
+					money?</button>
+			</div>
+			<div class="col-lg-2">
+				<button type="button" name="approvedRequest">Show me the
+					money</button>
+			</div>
+			<div class="col-lg-2">
+				<button type="button" name="deniedRequest">Why no money?</button>
+			</div>
+			<div class="col-lg-2">
+				<button type="button" name="employeeInfo">What's my name?</button>
+			</div>
+			<div class="col-lg-2">
+				<button type="button" name="changeInfo">I don't like my
+					name</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-2" id="reimbursement">
+				<form method="POST" action="ReimbursementRequestServlet">
+					<input type="number" name="RequestNumber"
+						placeholder="Request Number Here"><br /> <input
+						type="text" name="EmployeeId" placeholder="EmployeeID"><br>
+					<input type="number" name="RequestAmount"
+						placeholder="Request Amount Here"><br> <input
+						type="submit" value="Submit">
+				</form>
+			</div>
+			<div class="col-lg-2">
+				<table>
+					<thead>
+						<tr>
+							<th>Request</th>
+							<th>Amount</th>
+							<th>Manager</th>
+							<th>Employee</th>
+						</tr>
+					</thead>
+					<tbody id="pendingRequestTable"></tbody>
+				</table>
+			</div>
+			<div class="col-lg-2">
+				<table>
+					<thead>
+						<tr>
+							<th>Request</th>
+							<th>Amount</th>
+							<th>Manager</th>
+							<th>Employee</th>
+						</tr>
+					</thead>
+					<tbody id="approvedRequestTable"></tbody>
+				</table>
+			</div>
+			<div class="col-lg-2">
+				<table>
+					<thead>
+						<tr>
+							<th>Request</th>
+							<th>Amount</th>
+							<th>Manager</th>
+							<th>Employee</th>
+						</tr>
+					</thead>
+					<tbody id="deniedRequestTable"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<script src="./homepage.js"></script>
+</body>
+</html>
