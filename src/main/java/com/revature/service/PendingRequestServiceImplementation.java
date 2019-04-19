@@ -39,9 +39,9 @@ public class PendingRequestServiceImplementation implements PendingRequestServic
 	@Override
 	public PendingRequests updatePendingRequest(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			System.out.println("inside createPendingRequest");
+			System.out.println("inside updatePendingRequest");
 			PendingRequests toBeUpdated = mapper.readValue(request.getInputStream(), PendingRequests.class);
-			System.out.println("created pendingRequest");
+			System.out.println("updated Request");
 			return pendingRequestDao.updatePendingRequest(toBeUpdated);
 		} catch (IOException e) {
 			e.printStackTrace();

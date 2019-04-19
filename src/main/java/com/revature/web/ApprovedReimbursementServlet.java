@@ -22,6 +22,7 @@ public class ApprovedReimbursementServlet extends HttpServlet {
 	
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("made it to the doPost of ApprovedReimbursementServlet");
 		resp.setContentType("application/json");
 		resp.getOutputStream().write(mapper.writeValueAsBytes(ApprovedReimbursement.processPost(req, resp)));
 	}

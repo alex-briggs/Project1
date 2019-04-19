@@ -44,21 +44,15 @@
 				</table>
 			</div>
 			
-			<div class="col-lg-4" id="approved" style="display:none">
+			<div class="col-lg-6" id="approved" style="display:none" style="margin:auto">
 				<form method="post" action="ApprovedReimbursementServlet">
 					<input type="text" name="requestId" placeholder="Request Id Here" id="requestId"><br /> 
-					<!--  <input type="text" name="employeeId" placeholder="EmployeeID" id="employeeId"><br>
-					<input type="text" name="reimbursementAmount" placeholder="Request Amount Here" id="reimbursement"><br>--> 
-					<select>
-						<option value="pending">Pending</option>
-						<option value="approved">Approved</option>
-						<option value="denied">Denied</option>
-					</select>
+					<input type="text" name="status" placeholder="Type approved or denied"><br>
 				<input type="submit" value="Submit" id="createRequestBtn">
 				</form>
 			</div>
 			
-			<div class="col-lg-4" id="employees" style="display:none">
+			<div class="col-lg-6" id="employees" style="display:none">
 				<table>
 					<thead>
 						<tr>

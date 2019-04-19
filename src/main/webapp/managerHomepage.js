@@ -110,7 +110,7 @@ const populatePendingRequestTable = (listOfPendingRequests) => {
 		const tdStatus = document.createElement("td");
 		
 		//set value of each cell
-		tdRequestId.textContent = request.approvedRequestId;
+		tdRequestId.textContent = request.RequestId;
 		tdReimbursementAmount.textContent = request.reimbursementAmount;
 		tdManagerId.textContent = request.managerId;
 		tdEmpId.textContent = request.employeeId;

@@ -19,8 +19,7 @@ public class FrontController {
 	
 	public static Object processGet(HttpServletRequest request, HttpServletResponse response) {
 		final String uri = request.getRequestURI().replace("/ERSProject/api", "");
-		System.out.println(uri);
-		System.out.println("Inside FrontController: " + request.getMethod() + " request going to " + uri);
+		
 		switch (uri) {
 		case "/employees":
 			return employeeService.getAllEmployees(request, response);
