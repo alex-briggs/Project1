@@ -34,8 +34,13 @@ public class ApprovedRequestServiceImplementation implements ApprovedRequestServ
 
 	@Override
 	public AcceptedRequests updateApprovedRequest(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			AcceptedRequests acceptedRequest = mapper.readValue(request.getInputStream(), AcceptedRequests.class)
+			return acceptedRequestDao.updateAcceptedRequest(toBeUpdated);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 

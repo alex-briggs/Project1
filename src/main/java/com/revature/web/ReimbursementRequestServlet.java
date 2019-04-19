@@ -26,8 +26,6 @@ public class ReimbursementRequestServlet extends HttpServlet{
 	}
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
 		System.out.println("inside reimbursementrequestServlet");
 		response.setContentType("application/json");
 		response.getOutputStream().write(mapper.writeValueAsBytes(ReimbursementRequest.processPost(request, response)));

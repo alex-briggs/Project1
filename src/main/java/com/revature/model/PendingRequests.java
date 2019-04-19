@@ -6,17 +6,19 @@ public class PendingRequests {
 	private int employeeId;
 	private int reimbursementAmount;
 	private int managerId;
+	private String status;
 	
 	public PendingRequests() {
 		
 	}
 
-	public PendingRequests(int requestId, int employeeId, int reimbursementAmount, int managerId) {
+	public PendingRequests(int requestId, int employeeId, int reimbursementAmount, int managerId, String status) {
 		super();
 		this.requestId = requestId;
 		this.employeeId = employeeId;
 		this.reimbursementAmount = reimbursementAmount;
 		this.managerId = managerId;
+		this.status = status;
 	}
 
 	public int getRequestId() {
@@ -47,6 +49,14 @@ public class PendingRequests {
 		return managerId;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public void setManagerId(int managerId) {
 		this.managerId = managerId;
 	}
@@ -59,6 +69,7 @@ public class PendingRequests {
 		result = prime * result + managerId;
 		result = prime * result + reimbursementAmount;
 		result = prime * result + requestId;
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		return result;
 	}
 
@@ -79,14 +90,21 @@ public class PendingRequests {
 			return false;
 		if (requestId != other.requestId)
 			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "PendingRequests [requestId=" + requestId + ", employeeId=" + employeeId + ", reimbursementAmount="
-				+ reimbursementAmount + ", managerId=" + managerId + "]";
+				+ reimbursementAmount + ", managerId=" + managerId + ", status=" + status + "]";
 	}
+
+	
 	
 	
 }

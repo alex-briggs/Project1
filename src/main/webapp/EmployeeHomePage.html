@@ -27,13 +27,13 @@
 				<button type="button" name="pendingRequest" id="showMeMoney" onclick="showMeMoney()">Where is my
 					money?</button>
 			</div>
-			<div class="col-lg-2">
+			<!-- <div class="col-lg-2">
 				<button type="button" name="approvedRequest" id="yayMoney" onclick="yayMoney()">Show me the
 					money</button>
 			</div>
 			<div class="col-lg-2">
 				<button type="button" name="deniedRequest" id="noMoney" onclick="noMoney()">Why no money?</button>
-			</div>
+			</div> -->
 			<div class="col-lg-2">
 				<button type="button" name="employeeInfo" onclick="name()">What's my name?</button>
 			</div>
@@ -59,6 +59,7 @@
 							<th>Employee</th>
 							<th>Manager</th>
 							<th>Amount</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 					<tbody id="pendingRequestTable"></tbody>
@@ -91,6 +92,13 @@
 				</table>
 			</div>
 		</div>
+	</div>
+	
+	<br><br><br><br><br><br><br><br><br><br><br>
+	<div>
+		<form action="index.html">
+			<button type="submit" value="Logout">Log out</button>
+		</form>
 	</div>
 	<script src="./homepage.js"></script>
 </body>

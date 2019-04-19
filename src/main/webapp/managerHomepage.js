@@ -1,6 +1,7 @@
 window.onload = () => {
 	getAllEmployees();
 	getAllPendingRequests();
+	document.getElementById("createRequestBtn").addEventListener("click", approveRequest);
 	
 }
 
@@ -15,6 +16,15 @@ const showEmployees = () => {
 
 const showMeMoney = () => {
 	const x = document.getElementById("reimbursement");
+	if(x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+
+const approvedMoney = () => {
+	const x = document.getElementById("approved");
 	if(x.style.display === "none") {
 		x.style.display = "block";
 	} else {
@@ -45,21 +55,19 @@ const populateTable = (listOfEmployees) => {
 		const tdEmpFirstName = document.createElement("td");
 		const tdEmpLastName = document.createElement("td");
 
-		// Set the value of each cell
+
 		tdEmployeeId.textContent = employee.employeeId;
 		tdEmpFirstName.textContent = employee.employeeFirstName;
 		tdEmpLastName.textContent = employee.employeeLastName;
 		
-		// Create a row to be appended onto our table
+		
 		const row = document.createElement("tr");
 		
-		// Set the td's to the corresponding order of our table header
+	
 		row.appendChild(tdEmployeeId);
 		row.appendChild(tdEmpFirstName);
 		row.appendChild(tdEmpLastName);
 		
-		
-		// Append our row onto our table of todos
 		document.getElementById("employeeTable").appendChild(row);
 	}
 }
@@ -99,12 +107,14 @@ const populatePendingRequestTable = (listOfPendingRequests) => {
 		const tdReimbursementAmount = document.createElement("td");
 		const tdManagerId = document.createElement("td");
 		const tdEmpId = document.createElement("td");
+		const tdStatus = document.createElement("td");
 		
 		//set value of each cell
-		tdRequestId.textContent = request.requestId;
-		tdReimbursementAmount.textContent = request.reimbursementAmountS;
+		tdRequestId.textContent = request.approvedRequestId;
+		tdReimbursementAmount.textContent = request.reimbursementAmount;
 		tdManagerId.textContent = request.managerId;
 		tdEmpId.textContent = request.employeeId;
+		tdStatus.textContent = request.status;
 		
 		//Create a row to be appended onto our table
 		const row = document.createElement("tr");
@@ -114,8 +124,42 @@ const populatePendingRequestTable = (listOfPendingRequests) => {
 		row.appendChild(tdReimbursementAmount);
 		row.appendChild(tdManagerId);
 		row.appendChild(tdEmpId);
+		row.appendChild(tdStatus);
 		
 		//Append the row onto table of pendingRequests
 		document.getElementById("pendingRequestTable").appendChild(row);
+	}
+}
+
+const approveRequest = () => {
+	//Step 1: create XHR object
+	const xhr = new XMLHttpRequest();
+	//Step 1.5: Create a helper variable for your form data
+	const formData = parseForm();
+	//Step2: assign callback function to xhr.onreadystatechange
+	xhr.onreadystatechange = () => {
+		if (xhr === 200 && xhr.readState === 4) {
+			const json = xhr.responseText;
+			console.log(json);
+		}
+	}
+	
+	//Step 3: open up the request
+	xhr.open("POST", "http://localhost:8088/ERSProject/ApprovedReimbursementServlet");
+	
+	//Step 4: send off the request
+	xhr.send(JSON.stringify(formData));
+}
+
+const parseForm = () => {
+	const requestIdText = document.getElementById("requestId").value;
+	const reimbursementText = document.getElementById("reimbursement").value;
+	const employeeIdText = document.getElementById("employeeId").value;
+	
+	return {
+		approvedRequestId: requestIdText,
+		reimbursementAmount: reimbursementText,
+		employeeId: employeeIdText
+		
 	}
 }

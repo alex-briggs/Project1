@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Login Page</title>
 <link rel="stylesheet" type="text/css"
 		    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 		<script src="http://code.jquery.com/jquery-3.3.1.min.js"
@@ -12,7 +12,10 @@
 		    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-		<br>	<br>	<br>	<br>	<br>	<br>	<br>	<br>
+	<h1 style="text-align:center">Employee Reimbursement System</h1>
+	<br><br><br><br><br>
+	<div style="text-align:center">
+	<h3>Employee Login: </h3>
 	<div>
 		<form action="EmployeeLoginServlet" method="post">
 			UserName: <input type="text" name="UserName">
@@ -20,13 +23,17 @@
 			<input type="submit" value="Login">
 		</form>
 	</div>
+	</div>
 	<br>	<br>	<br>	<br>	<br>	<br>	<br>	<br>	<br>	<br>	<br>	<br>
+	<div style="text-align:center">
+	<h3>Manager Login: </h3>
 	<div>
 		<form action="ManagerLoginServlet" method="post">
 			UserName: <input type="text" name="ManagerUserName">
 			Password: <input type="password" name="ManagerPassword">
 			<input type="submit" value="Login">
 		</form>
+	</div>
 	</div>
 </body>
 </html>

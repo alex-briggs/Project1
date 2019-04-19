@@ -74,12 +74,14 @@ const populatePendingRequestTable = (listOfPendingRequests) => {
 		const tdReimbursementAmount = document.createElement("td");
 		const tdManagerId = document.createElement("td");
 		const tdEmpId = document.createElement("td");
+		const tdStatus = document.createElement("td");
 		
 		//set value of each cell
 		tdRequestId.textContent = request.requestId;
-		tdReimbursementAmount.textContent = request.reimbursementAmountS;
+		tdReimbursementAmount.textContent = request.reimbursementAmount;
 		tdManagerId.textContent = request.managerId;
 		tdEmpId.textContent = request.employeeId;
+		tdStatus.textContent = request.status;
 		
 		//Create a row to be appended onto our table
 		const row = document.createElement("tr");
@@ -89,6 +91,7 @@ const populatePendingRequestTable = (listOfPendingRequests) => {
 		row.appendChild(tdReimbursementAmount);
 		row.appendChild(tdManagerId);
 		row.appendChild(tdEmpId);
+		row.appendChild(tdStatus)
 		
 		//Append the row onto table of pendingRequests
 		document.getElementById("pendingRequestTable").appendChild(row);
@@ -118,7 +121,7 @@ const getAllApprovedRequests = () => {
 
 
 
-const populateApprovedRequestTable = (listofApprovedRequests) => {
+/*const populateApprovedRequestTable = (listofApprovedRequests) => {
 	//the for...of loop is JavaScript's version of the enhanced for loop
 	//the for...in loop iterates over every property of a JS object
 	for (let request of listOfApprovedRequest){
@@ -200,7 +203,7 @@ const populateDeniedRequestTable = (listofDeniedRequests) => {
 	}
 }
 
-
+*/
 const createRequest = () => {
 	//Step 1: create XHR object
 	const xhr = new XMLHttpRequest();

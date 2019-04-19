@@ -19,10 +19,13 @@
 	<br>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<button type="button" name="ReimbursementRequest" id="giveMeMoney" onclick="showMeMoney()">See Requests</button>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
+				<button type="button" name="ApprovedRequest" id="approvedMoney" onclick="approvedMoney()">Approve Requests</button>
+			</div>
+			<div class="col-lg-4">
 				<button type="button" name="employeeInfo" onclick="showEmployees()">See Employees</button>
 			</div>
 		</div>
@@ -35,18 +38,24 @@
 							<th>Employee</th>
 							<th>Manager</th>
 							<th>Amount</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 					<tbody id="pendingRequestTable"></tbody>
 				</table>
 			</div>
 			
-			<div class="col-lg-4" id="reimbursement" style="display:none">
-				<form method="post" action="ReimbursementRequestServlet">
+			<div class="col-lg-4" id="approved" style="display:none">
+				<form method="post" action="ApprovedReimbursementServlet">
 					<input type="text" name="requestId" placeholder="Request Id Here" id="requestId"><br /> 
-					<input type="text" name="employeeId" placeholder="EmployeeID" id="employeeId"><br>
-					<input type="text" name="reimbursementAmount" placeholder="Request Amount Here" id="reimbursement"><br> 
-					<input type="submit" value="Submit" id="createRequestBtn">
+					<!--  <input type="text" name="employeeId" placeholder="EmployeeID" id="employeeId"><br>
+					<input type="text" name="reimbursementAmount" placeholder="Request Amount Here" id="reimbursement"><br>--> 
+					<select>
+						<option value="pending">Pending</option>
+						<option value="approved">Approved</option>
+						<option value="denied">Denied</option>
+					</select>
+				<input type="submit" value="Submit" id="createRequestBtn">
 				</form>
 			</div>
 			
@@ -61,10 +70,14 @@
 					</thead>
 					<tbody id="employeeTable"></tbody>
 				</table>
-			</div>
-			
-			
+			</div>	
 	</div>
+	</div>
+	<br><br><br><br><br><br><br><br><br><br><br>
+	<div>
+		<form action="index.html">
+			<button type="submit" value="Logout">Log out</button>
+		</form>
 	</div>
 	<script src="./managerHomepage.js"></script>
 </body>

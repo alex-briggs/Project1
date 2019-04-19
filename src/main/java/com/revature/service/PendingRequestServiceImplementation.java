@@ -38,8 +38,17 @@ public class PendingRequestServiceImplementation implements PendingRequestServic
 
 	@Override
 	public PendingRequests updatePendingRequest(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			System.out.println("inside createPendingRequest");
+			PendingRequests toBeUpdated = mapper.readValue(request.getInputStream(), PendingRequests.class);
+			System.out.println("created pendingRequest");
+			return pendingRequestDao.updatePendingRequest(toBeUpdated);
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("inside exception: returning null");
+			
+			return null;
+		}
 	}
 
 	

@@ -25,7 +25,7 @@ public class PendingRequestDaoImplementation implements PendingRequestDao{
 			ResultSet rs = stmt.executeQuery("SELECT * FROM pendingrequest");
 			//populate list of pendingRequests from the ResultSet
 			while (rs.next()) {
-				pendingRequests.add(new PendingRequests(rs.getInt("request_id"), rs.getInt("reimbursement_amount"), rs.getInt("manager_id"), rs.getInt("emp_id")));
+				pendingRequests.add(new PendingRequests(rs.getInt("request_id"), rs.getInt("reimbursement_amount"), rs.getInt("manager_id"), rs.getInt("emp_id"), rs.getString("status")));
 			}
 			//Return pendingRequests so that the application can further manipulate
 			return pendingRequests;
@@ -50,7 +50,7 @@ public class PendingRequestDaoImplementation implements PendingRequestDao{
 					System.out.println("inside pendingrequestDAO");
 					//preparedStatement to avoid sql injections
 					//initialize our insert statement
-					PreparedStatement stmt = conn.prepareStatement("INSERT INTO pendingrequest(request_id, reimbursement_amount, manager_id, emp_id) VALUES (?,?,?,?)");
+					PreparedStatement stmt = conn.prepareStatement("INSERT INTO pendingrequest(request_id, reimbursement_amount, manager_id, emp_id, status) VALUES (?,?,?,?,?)");
 					//set the values of the insert statement to help prevent SQL injection
 					System.out.println("created prepared statement");
 					stmt.setInt(1, pendingRequest.getRequestId());
@@ -58,6 +58,7 @@ public class PendingRequestDaoImplementation implements PendingRequestDao{
 					System.out.println(pendingRequest.getReimbursementAmount());
 					stmt.setInt(3, 1);
 					stmt.setInt(4, pendingRequest.getEmployeeId());
+					stmt.setString(5,  "pending");
 					
 					//execute the query, determining the number of rows that were affected
 					int rowsAffected = stmt.executeUpdate();
@@ -78,8 +79,32 @@ public class PendingRequestDaoImplementation implements PendingRequestDao{
 
 	@Override
 	public PendingRequests updatePendingRequest(PendingRequests toBeUpdated) {
-		// TODO Auto-generated method stub
-		return null;
+		try (Connection conn = ConnectionFactory.getConnection()){
+			System.out.println("inside pendingrequestDAO");
+			//preparedStatement to avoid sql injections
+			//initialize our insert statement
+			PreparedStatement stmt = conn.prepareStatement("UPDATE pendingrequests SET status = ? WHERE request_id = ?");
+			//set the values of the insert statement to help prevent SQL injection
+			System.out.println("created prepared statement");
+			stmt.setString(1, toBeUpdated.getStatus());
+			stmt.setInt(2, toBeUpdated.getRequestId());
+	
+			
+			
+			//execute the query, determining the number of rows that were affected
+			int rowsAffected = stmt.executeUpdate();
+			
+			if(rowsAffected == 1) {
+				System.out.println(toBeUpdated);
+				return toBeUpdated;
+			}
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return new PendingRequests();
 	}
 
 	@Override
