@@ -6,9 +6,11 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   	<servlet-name>FrontController</servlet-name>
-  	<servlet-class>com.revature.web.FrontController</servlet-class>
+  	<servlet-class>com.revature.web.FrontControllerServlet</servlet-class>
   	<load-on-startup>1</load-on-startup>
   </servlet>
+
+ 
   <servlet>
   	<servlet-name>EmployeeLoginServlet</servlet-name>
   	<display-name>EmployeeLoginServlet</display-name>
@@ -31,6 +33,8 @@
   	<servlet-name>FrontController</servlet-name>
  	 <url-pattern>/api/*</url-pattern>
   </servlet-mapping>
+  
+
   
   <servlet-mapping>
   	<servlet-name>EmployeeLoginServlet</servlet-name>

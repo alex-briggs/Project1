@@ -2,9 +2,62 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Employee Home Page</title>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+	<h1 style="text-align: center">Welcome to Your Manager Home Page</h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-3">
+				<button type="button" name="ReimbursementRequest" id="giveMeMoney"
+					>See Requests</button>
+			</div>
+			<div class="col-lg-3">
+				<button type="button" name="pendingRequest" id="showMeMoney">See Employees</button>
+			</div>
+			
+			<div class="col-lg-3">
+				<button type="button" name="employeeInfo">What's my name?</button>
+			</div>
+			<div class="col-lg-3">
+				<button type="button" name="changeInfo">I don't like my
+					name</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-2" id="reimbursement">
+				<form method="post" action="ReimbursementRequestServlet">
+					<input type="text" name="requestId" placeholder="Request Id Here" id="requestId"><br /> 
+					<input type="text" name="employeeId" placeholder="EmployeeID" id="employeeId"><br>
+					<input type="text" name="reimbursementAmount" placeholder="Request Amount Here" id="reimbursement"><br> 
+					<input type="submit" value="Submit" id="createRequestBtn">
+				</form>
+			</div>
+			<div class="col-lg-2">
+				<table>
+					<thead>
+						<tr>
+							<th>Employee Id</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+						</tr>
+					</thead>
+					<tbody id="employeeTable"></tbody>
+				</table>
+			</div>
+	</div>
+	</div>
+	<script src="./managerHomepage.js"></script>
 </body>
 </html>

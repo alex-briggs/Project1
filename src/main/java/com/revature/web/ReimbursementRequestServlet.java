@@ -16,7 +16,13 @@ public class ReimbursementRequestServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
 	private static final ObjectMapper mapper = new ObjectMapper();
+	
 	private final PendingRequestService requestService = new PendingRequestServiceImplementation();
+	
+	public ReimbursementRequestServlet() {
+		
+	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
