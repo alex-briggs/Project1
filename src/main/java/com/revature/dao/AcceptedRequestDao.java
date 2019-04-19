@@ -7,7 +7,7 @@ import com.revature.model.AcceptedRequests;
 public interface AcceptedRequestDao {
 	List<AcceptedRequests> getAllAcceptedRequests();
 	AcceptedRequests getRequestById(int approvedRequestId);
-	AcceptedRequests createAcceptedRequest(AcceptedRequests AcceptedRequest);
+	AcceptedRequests createAcceptedRequest(AcceptedRequests acceptedRequest);
 	AcceptedRequests updateAcceptedRequest(AcceptedRequests toBeUpdated);
 	
 	//returns number of rows affected

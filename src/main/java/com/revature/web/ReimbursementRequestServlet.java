@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.service.PendingRequestService;
-import com.revature.service.PendingRequestServiceImplementation;
 
 public class ReimbursementRequestServlet extends HttpServlet{
 
@@ -17,21 +15,18 @@ public class ReimbursementRequestServlet extends HttpServlet{
 	
 	private static final ObjectMapper mapper = new ObjectMapper();
 	
-	private final PendingRequestService requestService = new PendingRequestServiceImplementation();
 	
 	public ReimbursementRequestServlet() {
 		
 	}
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
 	}
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		final String requestId = request.getParameter("requestId");
-		final String employeeId = request.getParameter("employeeId");
-		final String  requestAmount = request.getParameter("reimbursementAmount");
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		
 		System.out.println("inside reimbursementrequestServlet");
 		response.setContentType("application/json");

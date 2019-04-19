@@ -19,24 +19,29 @@
 	<br>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-3">
-				<button type="button" name="ReimbursementRequest" id="giveMeMoney"
-					>See Requests</button>
+			<div class="col-lg-6">
+				<button type="button" name="ReimbursementRequest" id="giveMeMoney" onclick="showMeMoney()">See Requests</button>
 			</div>
-			<div class="col-lg-3">
-				<button type="button" name="pendingRequest" id="showMeMoney">See Employees</button>
-			</div>
-			
-			<div class="col-lg-3">
-				<button type="button" name="employeeInfo">What's my name?</button>
-			</div>
-			<div class="col-lg-3">
-				<button type="button" name="changeInfo">I don't like my
-					name</button>
+			<div class="col-lg-6">
+				<button type="button" name="employeeInfo" onclick="showEmployees()">See Employees</button>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-2" id="reimbursement">
+			<div class="col-lg-4" id="reimbursement" style="display:none">
+				<table>
+					<thead>
+						<tr>
+							<th>Request</th>
+							<th>Employee</th>
+							<th>Manager</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tbody id="pendingRequestTable"></tbody>
+				</table>
+			</div>
+			
+			<div class="col-lg-4" id="reimbursement" style="display:none">
 				<form method="post" action="ReimbursementRequestServlet">
 					<input type="text" name="requestId" placeholder="Request Id Here" id="requestId"><br /> 
 					<input type="text" name="employeeId" placeholder="EmployeeID" id="employeeId"><br>
@@ -44,7 +49,8 @@
 					<input type="submit" value="Submit" id="createRequestBtn">
 				</form>
 			</div>
-			<div class="col-lg-2">
+			
+			<div class="col-lg-4" id="employees" style="display:none">
 				<table>
 					<thead>
 						<tr>
@@ -56,6 +62,8 @@
 					<tbody id="employeeTable"></tbody>
 				</table>
 			</div>
+			
+			
 	</div>
 	</div>
 	<script src="./managerHomepage.js"></script>

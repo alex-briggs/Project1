@@ -77,8 +77,8 @@ const populatePendingRequestTable = (listOfPendingRequests) => {
 		
 		//set value of each cell
 		tdRequestId.textContent = request.requestId;
-		tdReimbursementAmount.textContent = request.reimbursementAmount;
-		//tdManagerId.textContent = request.managerid;
+		tdReimbursementAmount.textContent = request.reimbursementAmountS;
+		tdManagerId.textContent = request.managerId;
 		tdEmpId.textContent = request.employeeId;
 		
 		//Create a row to be appended onto our table
@@ -87,7 +87,7 @@ const populatePendingRequestTable = (listOfPendingRequests) => {
 		//Set the td's to the corresponding order of the table header
 		row.appendChild(tdRequestId);
 		row.appendChild(tdReimbursementAmount);
-		//row.appendChild(tdManagerId);
+		row.appendChild(tdManagerId);
 		row.appendChild(tdEmpId);
 		
 		//Append the row onto table of pendingRequests

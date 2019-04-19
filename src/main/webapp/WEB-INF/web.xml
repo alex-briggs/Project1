@@ -29,6 +29,12 @@
   	<servlet-class>com.revature.web.ReimbursementRequestServlet</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>ApprovedReimbursementServlet</servlet-name>
+  	<display-name>ApprovedReimbursementServlet</display-name>
+  	<servlet-class>com.revature.web.ApprovedReimbursementServlet</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>FrontController</servlet-name>
  	 <url-pattern>/api/*</url-pattern>
@@ -49,5 +55,10 @@
     <servlet-mapping>
   	<servlet-name>ManagerLoginServlet</servlet-name>
   	<url-pattern>/ManagerLoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>ApprovedReimbursementServlet</servlet-name>
+  	<url-pattern>/ApprovedReimbursementServlet</url-pattern>
   </servlet-mapping>
 </web-app>
