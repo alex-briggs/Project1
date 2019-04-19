@@ -22,8 +22,8 @@ const showMeMoney = () => {
 	}
 }
 
-const yayMoney = () => {
-	const x = document.getElementById("approvedTable");
+const name = () => {
+	const x = document.getElementById("showName");
 	if(x.style.display === "none") {
 		x.style.display = "block";
 	} else {
@@ -31,8 +31,8 @@ const yayMoney = () => {
 	}
 }
 
-const noMoney = () => {
-	const x = document.getElementById("deniedTable");
+const changeName = () => {
+	const x = document.getElementById("changeName");
 	if(x.style.display === "none") {
 		x.style.display = "block";
 	} else {
