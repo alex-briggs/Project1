@@ -3,32 +3,31 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Employee Home Page</title>
-<link rel="stylesheet" type="text/css"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"
-	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	crossorigin="anonymous"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1 style="text-align: center">Welcome to Your Manager Home Page</h1>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Employee Reimbursement System</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="ManagerHomePage.html">Home</a></li>
+      <li><a onclick="showMeMoney()">See Reimbursements</a></li> 
+      <li><a onclick="approvedMoney()">Approve Requests</a></li>
+      <li><a onclick="showEmployees()">See Employees</a></li>
+      <li><a href="index.html">Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+<h1 style="text-align: center">Welcome to Your Manager Home Page</h1>
 	<br>
 	<br>
 	<br>
 	<br>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-4">
-				<button type="button" name="ReimbursementRequest" id="giveMeMoney" onclick="showMeMoney()">See Requests</button>
-			</div>
-			<div class="col-lg-4">
-				<button type="button" name="ApprovedRequest" id="approvedMoney" onclick="approvedMoney()">Approve Requests</button>
-			</div>
-			<div class="col-lg-4">
-				<button type="button" name="employeeInfo" onclick="showEmployees()">See Employees</button>
-			</div>
-		</div>
 		<div class="row">
 			<div class="col-lg-4" id="reimbursement" style="display:none">
 				<table>
@@ -74,11 +73,7 @@
 	</div>
 	</div>
 	<br><br><br><br><br><br><br><br><br><br><br>
-	<div>
-		<form action="index.html">
-			<button type="submit" value="Logout">Log out</button>
-		</form>
-	</div>
+	
 	<script src="./managerHomepage.js"></script>
 </body>
 </html>

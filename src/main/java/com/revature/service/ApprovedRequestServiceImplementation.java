@@ -35,7 +35,7 @@ public class ApprovedRequestServiceImplementation implements ApprovedRequestServ
 	@Override
 	public AcceptedRequests updateApprovedRequest(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			AcceptedRequests acceptedRequest = mapper.readValue(request.getInputStream(), AcceptedRequests.class)
+			AcceptedRequests acceptedRequest = mapper.readValue(request.getInputStream(), AcceptedRequests.class);
 			return acceptedRequestDao.updateAcceptedRequest(toBeUpdated);
 		} catch (IOException e) {
 			e.printStackTrace();

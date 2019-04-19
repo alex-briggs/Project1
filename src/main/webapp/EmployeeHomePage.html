@@ -3,45 +3,33 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Employee Home Page</title>
-<link rel="stylesheet" type="text/css"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"
-	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	crossorigin="anonymous"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Employee Reimbursement System</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="EmployeeHomePage.html">Home</a></li>
+      <li><a onclick="giveMeMoney()">Give Me Money</a></li> 
+      <li><a onclick="showMeMoney()">Show Me the Money</a></li>
+      <li><a onclick="name()">What's My Name?</a></li>
+      <li><a>I don't like my name</a>
+      <li><a href="index.html">Log Out</a></li>
+    </ul>
+  </div>
+</nav>
 	<h1 style="text-align: center">Welcome to Your Home Page</h1>
 	<br>
 	<br>
 	<br>
 	<br>
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-2">
-				<button type="button" name="ReimbursementRequest" id="giveMeMoney"
-					onclick="giveMeMoney()">Give me Money</button>
-			</div>
-			<div class="col-lg-2">
-				<button type="button" name="pendingRequest" id="showMeMoney" onclick="showMeMoney()">Where is my
-					money?</button>
-			</div>
-			<!-- <div class="col-lg-2">
-				<button type="button" name="approvedRequest" id="yayMoney" onclick="yayMoney()">Show me the
-					money</button>
-			</div>
-			<div class="col-lg-2">
-				<button type="button" name="deniedRequest" id="noMoney" onclick="noMoney()">Why no money?</button>
-			</div> -->
-			<div class="col-lg-2">
-				<button type="button" name="employeeInfo" onclick="name()">What's my name?</button>
-			</div>
-			<div class="col-lg-2">
-				<button type="button" name="changeInfo">I don't like my
-					name</button>
-			</div>
-		</div>
+
 		<div class="row">
 			<div class="col-lg-2" id="reimbursement" style="display:none">
 				<form method="post" action="ReimbursementRequestServlet">
@@ -95,11 +83,7 @@
 	</div>
 	
 	<br><br><br><br><br><br><br><br><br><br><br>
-	<div>
-		<form action="index.html">
-			<button type="submit" value="Logout">Log out</button>
-		</form>
-	</div>
+	
 	<script src="./homepage.js"></script>
 </body>
 </html>
